@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'CryptextLocal';
-    src: url('cryptext.ttf?v=1.5') format('truetype');
+    src: url('cryptext.ttf?v=1.6') format('truetype');
     font-display: swap;
 }
 
@@ -13,63 +13,70 @@
 body {
     background-color: #000;
     color: #fff;
-    font-family: sans-serif;
+    font-family: -apple-system, sans-serif;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
 }
 
-.main-wrapper {
+.app-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el input verticalmente */
     align-items: center;
     height: 100vh;
-    padding: 20px;
     position: relative;
+    padding: 20px;
 }
 
-/* ÁREA DE RESULTADO (ARRIBA) */
-.result-area {
+/* ÁREA DEL RESULTADO (ARRIBA) */
+.mirror-box {
     position: absolute;
-    top: 5vh; /* Distancia desde el techo */
+    top: 10vh; /* Ajusta este valor para subir o bajar el resultado */
     width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 0 10px;
+    text-align: center;
+    padding: 0 5%;
 }
 
 .fuente-custom {
     font-family: 'CryptextLocal', serif !important;
-    font-size: clamp(4rem, 25vw, 15rem); /* Tamaño masivo */
     color: #ffffff;
-    transform: scaleX(-1); /* Espejo Horizontal */
-    word-break: break-all;
+    
+    /* EFECTO ESPEJO HORIZONTAL */
+    transform: scaleX(-1);
+    
+    /* Tamaño masivo y responsive */
+    font-size: clamp(3.5rem, 22vw, 12rem);
     line-height: 1;
-    text-align: center;
+    word-wrap: break-word;
+    display: inline-block;
+    
+    /* Suavizado para evitar bordes pixelados en el giro */
+    -webkit-font-smoothing: antialiased;
+    backface-visibility: hidden;
 }
 
-/* ÁREA DE INPUT (CENTRO) */
-.input-center {
+/* ÁREA DEL INPUT (CENTRO) */
+.input-box {
     width: 100%;
-    max-width: 500px;
-    z-index: 10;
+    max-width: 450px;
+    z-index: 5;
 }
 
 input {
     width: 100%;
     background: #111;
-    border: 1px solid #333;
-    border-radius: 15px;
+    border: 1px solid #222;
+    border-radius: 12px;
     color: #fff;
-    padding: 20px;
-    font-size: 1.3rem;
+    padding: 22px;
+    font-size: 1.2rem;
     outline: none;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
 }
 
 input:focus {
-    border-color: #666;
-    background: #161616;
+    border-color: #444;
+    background: #181818;
 }
