@@ -1,43 +1,76 @@
-
-/* Carga de tu tipografía local */
+/* 1. Definición de la fuente local */
 @font-face {
-    font-family: 'MiFuenteMagica';
-    src: url('tu-fuente.ttf') format('truetype');
+    font-family: 'Cryptext';
+    src: url('cryptext.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
+/* 2. Estilos base del cuerpo */
 body {
-    background-color: #121212;
-    color: white;
-    font-family: sans-serif;
+    background-color: #0f0f0f; /* Un negro más profundo */
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
+/* 3. Contenedor principal */
 .container {
     text-align: center;
-    width: 90%;
-}
-
-input {
-    padding: 10px;
     width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
-    border: none;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+    max-width: 500px;
+    padding: 20px;
 }
 
-/* La magia de los 180 grados */
+h1 {
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #888;
+}
+
+/* 4. Estilo del campo de entrada */
+input {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+input:focus {
+    border-color: #00ffcc;
+}
+
+/* 5. EL RESULTADO (Donde ocurre la magia) */
 .fuente-custom {
-    font-family: 'MiFuenteMagica', serif;
-    font-size: 3rem;
-    margin-top: 30px;
+    /* Aplicamos tu fuente */
+    font-family: 'Cryptext', serif; 
+    
+    /* Inversión de 180 grados */
     transform: rotate(180deg);
+    
+    /* Ajustes visuales */
     display: inline-block;
-    word-wrap: break-word;
+    margin-top: 50px;
+    font-size: 3.5rem;
     color: #00ffcc;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+    word-wrap: break-word;
+    width: 100%;
+    min-height: 100px;
+    line-height: 1.2;
+    
+    /* Suavizado de animación al escribir */
+    transition: all 0.2s ease;
 }
