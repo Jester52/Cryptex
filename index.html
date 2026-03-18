@@ -2,34 +2,54 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Texto 180°</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Texto 180° - Cryptext</title>
+    <link rel="stylesheet" href="style.css?v=1.1">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="container">
-        <h1>Inversor de Texto</h1>
-        <input type="text" id="inputTexto" placeholder="Escribe algo aquí...">
-        <div id="resultado" class="fuente-custom"></div>
+        <h1>CRYPTEXT 180</h1>
+        
+        <div class="input-group">
+            <input type="text" id="inputTexto" placeholder="Escribe tu mensaje secreto..." autocomplete="off">
+            <button id="btnCopiar" title="Copiar texto">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+        </div>
+
+        <div class="preview-area">
+            <div id="resultado" class="fuente-custom"></div>
+        </div>
     </div>
 
     <script>
         const input = document.getElementById('inputTexto');
         const resultado = document.getElementById('resultado');
+        const btnCopiar = document.getElementById('btnCopiar');
 
         input.addEventListener('input', () => {
-            // Invertimos la cadena de texto
             const original = input.value;
+            // Invertimos el orden de las letras para que al girar 180 se lea de izquierda a derecha
             const invertido = original.split('').reverse().join('');
             resultado.textContent = invertido;
         });
 
-        // Registro del Service Worker para PWA
+        btnCopiar.addEventListener('click', () => {
+            const texto = resultado.textContent;
+            if (texto) {
+                navigator.clipboard.writeText(texto).then(() => {
+                    const originalColor = btnCopiar.style.color;
+                    btnCopiar.style.color = "#00ffcc";
+                    setTimeout(() => btnCopiar.style.color = originalColor, 1000);
+                });
+            }
+        });
+
+        // Registro de Service Worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
         }
     </script>
 </body>
 </html>
-
