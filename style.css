@@ -32,13 +32,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Alinea al tope superior */
-    padding-top: 10vh; /* Espacio desde el borde superior */
+    padding-top: 5vh; /* Espacio desde el borde superior */
 }
 
 .fuente-custom {
     font-family: 'CryptextLocal', serif !important;
     /* Tamaño masivo: mínimo 4rem, escala con el ancho, máximo 15rem */
-    font-size: clamp(10rem, 25vw, 15rem); 
+    font-size: clamp(7rem, 25vw, 15rem); 
     color: #ffffff;
     transform: scaleX(-1); /* Espejo Horizontal */
     word-break: break-all;
