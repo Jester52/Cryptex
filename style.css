@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'CryptextLocal';
-    src: url('cryptext.ttf?v=1.3') format('truetype');
+    src: url('cryptext.ttf?v=1.4') format('truetype');
     font-display: swap;
 }
 
@@ -11,64 +11,65 @@
 }
 
 body {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #000;
+    color: #fff;
     font-family: sans-serif;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    width: 100vw;
+    overflow: hidden; /* Evita scrolls innecesarios */
 }
 
-.container {
-    width: 100%;
-    height: 100%;
+.main-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Empuja el resultado arriba y el input abajo */
-    padding: 40px 20px;
+    height: 100vh;
+    padding: 20px;
 }
 
-/* ÁREA DE RESULTADO (ARRIBA) */
-.preview-area {
-    flex: 1;
+/* ÁREA DE RESULTADO: Ocupa el 80% superior de la pantalla */
+.result-viewport {
+    flex: 8; 
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+    align-items: flex-start; /* Alinea al tope superior */
+    padding-top: 10vh; /* Espacio desde el borde superior */
 }
 
 .fuente-custom {
     font-family: 'CryptextLocal', serif !important;
-    /* Tamaño gigante ajustable según pantalla */
-    font-size: clamp(4rem, 20vw, 10rem); 
+    /* Tamaño masivo: mínimo 4rem, escala con el ancho, máximo 15rem */
+    font-size: clamp(4rem, 25vw, 15rem); 
     color: #ffffff;
-    transform: scaleX(-1); /* Efecto espejo horizontal */
+    transform: scaleX(-1); /* Espejo Horizontal */
     word-break: break-all;
-    line-height: 1;
+    line-height: 0.9;
     text-align: center;
+    text-shadow: 0 0 10px rgba(255,255,255,0.1);
 }
 
-/* ÁREA DE ENTRADA (ABAJO) */
-.input-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+/* ÁREA DE INPUT: Ocupa el 20% inferior */
+.input-footer {
+    flex: 2;
+    display: flex;
+    align-items: flex-end; /* Pega el input al fondo */
+    justify-content: center;
+    padding-bottom: 20px;
 }
 
 input {
     width: 100%;
+    max-width: 600px;
     background: #111;
-    border: 1px solid #333;
-    border-radius: 12px;
+    border: 1px solid #222;
+    border-radius: 50px; /* Estilo píldora */
     color: #fff;
-    padding: 18px;
-    font-size: 1.2rem;
+    padding: 15px 25px;
+    font-size: 1.1rem;
     outline: none;
     text-align: center;
+    transition: border 0.3s;
 }
 
 input:focus {
-    border-color: #555;
+    border-color: #444;
 }
