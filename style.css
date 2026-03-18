@@ -1,76 +1,93 @@
-/* 1. Definición de la fuente local */
+/* Cache Busting mediante versión en la URL del archivo TTF */
 @font-face {
-    font-family: 'Cryptext';
-    src: url('cryptext.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'CryptextLocal';
+    src: url('cryptext.ttf?v=1.1') format('truetype');
+    font-display: block; /* Fuerza a esperar la fuente antes de mostrar texto */
 }
 
-/* 2. Estilos base del cuerpo */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
 body {
-    background-color: #0f0f0f; /* Un negro más profundo */
-    color: #e0e0e0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-}
-
-/* 3. Contenedor principal */
-.container {
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
+    min-height: 100vh;
     padding: 20px;
 }
 
-h1 {
-    font-weight: 300;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
-    color: #888;
+.container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
 }
 
-/* 4. Estilo del campo de entrada */
+h1 {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    color: #444;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #161616;
+    border-radius: 15px;
+    border: 1px solid #222;
+    padding: 5px;
+}
+
 input {
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #fff;
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
     padding: 15px;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 12px;
     font-size: 1.1rem;
     outline: none;
-    transition: border 0.3s ease;
 }
 
-input:focus {
-    border-color: #00ffcc;
+#btnCopiar {
+    background: transparent;
+    border: none;
+    color: #666;
+    padding: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-/* 5. EL RESULTADO (Donde ocurre la magia) */
+.preview-area {
+    margin-top: 60px;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px; /* Para mejor renderizado en móviles */
+}
+
+/* LA FUENTE GIRADA */
 .fuente-custom {
-    /* Aplicamos tu fuente */
-    font-family: 'Cryptext', serif; 
-    
-    /* Inversión de 180 grados */
-    transform: rotate(180deg);
-    
-    /* Ajustes visuales */
-    display: inline-block;
-    margin-top: 50px;
-    font-size: 3.5rem;
+    font-family: 'CryptextLocal', serif !important;
+    font-size: clamp(2rem, 10vw, 4rem); /* Responsive según el ancho de pantalla */
     color: #00ffcc;
-    text-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
-    word-wrap: break-word;
-    width: 100%;
-    min-height: 100px;
+    transform: rotate(180deg);
+    display: inline-block;
+    word-break: break-all;
     line-height: 1.2;
-    
-    /* Suavizado de animación al escribir */
-    transition: all 0.2s ease;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+}
+
+/* Media Queries para móviles pequeños */
+@media (max-width: 480px) {
+    .preview-area {
+        margin-top: 40px;
+    }
 }
