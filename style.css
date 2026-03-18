@@ -38,7 +38,7 @@ body {
 .fuente-custom {
     font-family: 'CryptextLocal', serif !important;
     /* Tamaño masivo: mínimo 4rem, escala con el ancho, máximo 15rem */
-    font-size: clamp(4rem, 25vw, 15rem); 
+    font-size: clamp(10rem, 25vw, 15rem); 
     color: #ffffff;
     transform: scaleX(-1); /* Espejo Horizontal */
     word-break: break-all;
