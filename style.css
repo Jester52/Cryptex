@@ -42,8 +42,8 @@ body {
     font-family: 'CryptextLocal', serif !important;
     color: #ffffff;
     
-    /* EFECTO ESPEJO HORIZONTAL */
-    transform: scaleX(-1);
+    /* EFECTO ESPEJO HORIZONTAL 
+    transform: scaleX(-1);*/
     
     /* Tamaño masivo y responsive */
     font-size: clamp(3.5rem, 22vw, 12rem);
