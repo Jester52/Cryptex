@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto 180°</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <h1>Inversor de Texto</h1>
+        <input type="text" id="inputTexto" placeholder="Escribe algo aquí...">
+        <div id="resultado" class="fuente-custom"></div>
+    </div>
+
+    <script>
+        const input = document.getElementById('inputTexto');
+        const resultado = document.getElementById('resultado');
+
+        input.addEventListener('input', () => {
+            // Invertimos la cadena de texto
+            const original = input.value;
+            const invertido = original.split('').reverse().join('');
+            resultado.textContent = invertido;
+        });
+
+        // Registro del Service Worker para PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
 
