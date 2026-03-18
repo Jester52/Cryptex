@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Cryptext Mirror Pro</title>
-    <link rel="stylesheet" href="style.css?v=1.4">
+    <title>Cryptext Centered</title>
+    <link rel="stylesheet" href="style.css?v=1.5">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="main-wrapper">
-        <div class="result-viewport">
+        <div class="result-area">
             <div id="resultado" class="fuente-custom"></div>
         </div>
 
-        <div class="input-footer">
-            <input type="text" id="inputTexto" placeholder="Escribe..." autocomplete="off" autofocus>
+        <div class="input-center">
+            <input type="text" id="inputTexto" placeholder="Escribe aquí..." autocomplete="off" autofocus>
         </div>
     </div>
 
@@ -23,7 +23,6 @@
         const resultado = document.getElementById('resultado');
 
         input.addEventListener('input', () => {
-            // El CSS maneja el espejo con scaleX(-1)
             resultado.textContent = input.value;
         });
 
