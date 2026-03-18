@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'CryptextLocal';
-    src: url('cryptext.ttf?v=1.4') format('truetype');
+    src: url('cryptext.ttf?v=1.5') format('truetype');
     font-display: swap;
 }
 
@@ -16,60 +16,60 @@ body {
     font-family: sans-serif;
     height: 100vh;
     width: 100vw;
-    overflow: hidden; /* Evita scrolls innecesarios */
+    overflow: hidden;
 }
 
 .main-wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center;
     height: 100vh;
     padding: 20px;
+    position: relative;
 }
 
-/* ÁREA DE RESULTADO: Ocupa el 80% superior de la pantalla */
-.result-viewport {
-    flex: 8; 
+/* ÁREA DE RESULTADO (ARRIBA) */
+.result-area {
+    position: absolute;
+    top: 5vh; /* Distancia desde el techo */
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinea al tope superior */
-    padding-top: 5vh; /* Espacio desde el borde superior */
+    padding: 0 10px;
 }
 
 .fuente-custom {
     font-family: 'CryptextLocal', serif !important;
-    /* Tamaño masivo: mínimo 4rem, escala con el ancho, máximo 15rem */
-    font-size: clamp(7rem, 25vw, 15rem); 
+    font-size: clamp(4rem, 25vw, 15rem); /* Tamaño masivo */
     color: #ffffff;
     transform: scaleX(-1); /* Espejo Horizontal */
     word-break: break-all;
-    line-height: 0.9;
+    line-height: 1;
     text-align: center;
-    text-shadow: 0 0 10px rgba(255,255,255,0.1);
 }
 
-/* ÁREA DE INPUT: Ocupa el 20% inferior */
-.input-footer {
-    flex: 2;
-    display: flex;
-    align-items: flex-end; /* Pega el input al fondo */
-    justify-content: center;
-    padding-bottom: 20px;
+/* ÁREA DE INPUT (CENTRO) */
+.input-center {
+    width: 100%;
+    max-width: 500px;
+    z-index: 10;
 }
 
 input {
     width: 100%;
-    max-width: 600px;
     background: #111;
-    border: 1px solid #222;
-    border-radius: 50px; /* Estilo píldora */
+    border: 1px solid #333;
+    border-radius: 15px;
     color: #fff;
-    padding: 15px 25px;
-    font-size: 1.1rem;
+    padding: 20px;
+    font-size: 1.3rem;
     outline: none;
     text-align: center;
-    transition: border 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 input:focus {
-    border-color: #444;
+    border-color: #666;
+    background: #161616;
 }
