@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Cryptext Centered</title>
-    <link rel="stylesheet" href="style.css?v=1.5">
+    <title>Mirror Text PWA</title>
+    <link rel="stylesheet" href="style.css?v=1.6">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div class="main-wrapper">
-        <div class="result-area">
+    <div class="app-container">
+        <div class="mirror-box">
             <div id="resultado" class="fuente-custom"></div>
         </div>
 
-        <div class="input-center">
+        <div class="input-box">
             <input type="text" id="inputTexto" placeholder="Escribe aquí..." autocomplete="off" autofocus>
         </div>
     </div>
@@ -23,6 +23,7 @@
         const resultado = document.getElementById('resultado');
 
         input.addEventListener('input', () => {
+            // El CSS hace todo el trabajo visual del espejo
             resultado.textContent = input.value;
         });
 
