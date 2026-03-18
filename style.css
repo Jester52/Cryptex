@@ -1,1 +1,43 @@
 
+/* Carga de tu tipografía local */
+@font-face {
+    font-family: 'MiFuenteMagica';
+    src: url('tu-fuente.ttf') format('truetype');
+}
+
+body {
+    background-color: #121212;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* La magia de los 180 grados */
+.fuente-custom {
+    font-family: 'MiFuenteMagica', serif;
+    font-size: 3rem;
+    margin-top: 30px;
+    transform: rotate(180deg);
+    display: inline-block;
+    word-wrap: break-word;
+    color: #00ffcc;
+}
